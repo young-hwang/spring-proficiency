@@ -1,0 +1,16 @@
+
+v
+java:S1450"`Remove the "routingDataSource" field and declare it as a local variable in the relevant methods.(ñŠ’°
+z
+java:S2175"_A "Map<String, CustomerDataSourceProperty>" cannot contain a "CustomerType" in a "String" type.(„ûì¶øÿÿÿÿ
+z
+java:S2175#"_A "Map<String, CustomerDataSourceProperty>" cannot contain a "CustomerType" in a "String" type.(å¡¿Ëýÿÿÿÿ
+F
+java:S1128	"0Remove this unused import 'java.sql.Connection'.(¥ËôÖ
+H
+java:S1128
+"2Remove this unused import 'java.sql.SQLException'.(ÛïÆŸ
+X
+java:S1128"=Remove this unused import 'java.util.NoSuchElementException'.(®“ÿéúÿÿÿÿ
+J
+java:S1128"/Remove this unused import 'java.util.Optional'.(¨˜ëÝüÿÿÿÿ

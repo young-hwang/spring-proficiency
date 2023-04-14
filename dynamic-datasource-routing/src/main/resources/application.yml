@@ -1,0 +1,12 @@
+server:
+    sources:
+        MASTER:
+            host: localhost
+            port: 3306
+            user: root
+            password: passwd
+        SLAVE:
+            host: localhost
+            port: 4306
+            user: root
+            password: passwd
