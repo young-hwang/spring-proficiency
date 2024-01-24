@@ -39,7 +39,8 @@ bin/
 .vscode/
 
 ### Mac OS ###
-.DS_Store### Java template
+.DS_Store
+### Java template
 # Compiled class file
 *.class
 
