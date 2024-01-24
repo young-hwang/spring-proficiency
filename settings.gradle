@@ -1,2 +1,3 @@
 rootProject.name = 'spring-proficiency'
+include 'junit5-suite'
 

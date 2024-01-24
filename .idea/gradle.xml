@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/junit5-suite" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -48,6 +49,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/spring-mvc-exception" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/websocket-interactive-web" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/websocket-interactive-web" />
           </set>
         </option>
       </GradleProjectSettings>
