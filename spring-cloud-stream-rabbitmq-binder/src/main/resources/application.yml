@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: spring-cloud-stream-rabbitmq-binder
+  rabbitmq:
+    username: admin
+    password: admin
+  cloud:
+    function:
+      definition: testConsumer
+    stream:
+      bindings:
+        testConsumer-in-0:
+          destination: test-exchange
+          group: test-queue
+      rabbit:
+        bindings:
+          testConsumer-in-0:
+            consumer:
+              bindingRoutingKey: "test-key"
+              declareExchange: false
+              queueNameGroupOnly: true
+              bindQueue: false
