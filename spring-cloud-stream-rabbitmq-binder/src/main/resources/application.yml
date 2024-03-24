@@ -16,7 +16,7 @@ spring:
         bindings:
           testConsumer-in-0:
             consumer:
-              bindingRoutingKey: "test-key"
-              declareExchange: false
-              queueNameGroupOnly: true
-              bindQueue: false
+              binding-routing-key: "test-key"
+              declare-exchange: false
+              queue-name-group-only: true
+              bind-queue: false
