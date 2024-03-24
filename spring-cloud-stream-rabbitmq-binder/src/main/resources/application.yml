@@ -6,12 +6,17 @@ spring:
     password: admin
   cloud:
     function:
-      definition: testConsumer
+      definition: testConsumer;testBatchConsumer
     stream:
       bindings:
         testConsumer-in-0:
           destination: test-exchange
           group: test-queue
+        testBatchConsumer-in-0:
+          destination: test-batch-exchange
+          group: test-batch-queue
+          consumer:
+            batch-mode: true
       rabbit:
         bindings:
           testConsumer-in-0:
@@ -20,3 +25,12 @@ spring:
               declare-exchange: false
               queue-name-group-only: true
               bind-queue: false
+          testBatchConsumer-in-0:
+            consumer:
+              binding-routing-key: "test-batch-key"
+              declare-exchange: false
+              queue-name-group-only: true
+              bind-queue: false
+              batch-size: 10
+              enable-batching: true
+              receive-timeout: 2000
