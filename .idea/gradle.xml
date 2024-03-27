@@ -8,7 +8,6 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/junit5-suite" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -49,6 +48,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/spring-cloud-stream-rabbitmq-binder" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/spring-data-redis" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/spring-data-redis" />
           </set>
         </option>
       </GradleProjectSettings>
