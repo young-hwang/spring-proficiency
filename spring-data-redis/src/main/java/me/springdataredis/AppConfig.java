@@ -1,7 +1,10 @@
 package me.springdataredis;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.redis.connection.RedisClusterConfiguration;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceClientConfiguration;
@@ -24,6 +27,17 @@ public class AppConfig {
                 .shutdownTimeout(Duration.ZERO)
                 .build();
         return new LettuceConnectionFactory(new RedisStandaloneConfiguration("localhost", 6379), clientConfig);
+    }
+
+    /**
+     * Type safe representation of application.properties
+     */
+    @Autowired
+    ClusterConfigurationProperties clusterProperties;
+
+    @Bean
+    public RedisConnectionFactory connectionFactory() {
+        return new LettuceConnectionFactory(new RedisClusterConfiguration(clusterProperties.getNodes()));
     }
 
     // RedisCacheManager is used to create a Redis cache manager

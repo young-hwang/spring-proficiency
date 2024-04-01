@@ -13,7 +13,6 @@ public class RedisApplication {
         configuration.setHostName("localhost");
         configuration.setPort(6379);
         configuration.setDatabase(0);
-        configuration.setPassword("!@hyperion78*");
 
         LettuceConnectionFactory connectionFactory = new LettuceConnectionFactory(configuration);
         connectionFactory.start();
