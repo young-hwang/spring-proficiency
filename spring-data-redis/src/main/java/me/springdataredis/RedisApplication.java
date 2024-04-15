@@ -1,25 +1,13 @@
 package me.springdataredis;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.boot.autoconfigure.data.redis.RedisProperties;
-import org.springframework.data.redis.connection.RedisConnection;
 import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
-import org.springframework.data.redis.connection.jedis.JedisConnection;
 import org.springframework.data.redis.connection.jedis.JedisConnectionFactory;
-import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
-import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-import redis.clients.jedis.HostAndPort;
 import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.UnifiedJedis;
-import redis.clients.jedis.bloom.RedisBloomProtocol;
 
-import java.nio.charset.StandardCharsets;
-import java.time.LocalTime;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.stream.IntStream;
 
 @Slf4j
@@ -44,7 +32,7 @@ public class RedisApplication {
         System.out.println(System.currentTimeMillis());
 //        JedisPool pool = new JedisPool("localhost", 6379);
 //            pool.get
-        Jedis jedis = (Jedis) connectionFactory.getConnection().getNativeConnection()
+        Jedis jedis = (Jedis) connectionFactory.getConnection().getNativeConnection();
 //        UnifiedJedis pool = new UnifiedJedis(HostAndPort.from("localhost:6379"));
         UnifiedJedis pool = new UnifiedJedis(jedis.getConnection());
         IntStream.range(1, 990000).forEach(i -> {
