@@ -1,0 +1,14 @@
+version: '3.9'
+services:
+  nginx:
+    container_name: nginx_service
+    image: nginx:1.26.0-alpine-slim
+    ports:
+      - "80:80"
+      - "18080:18080"
+    volumes:
+      - ./conf.d:/etc/nginx/conf.d
+      - ./html:/usr/share/nginx/html
+    environment:
+      - NGINX_HOST=localhost
+      - NGINX_PORT=80

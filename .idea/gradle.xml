@@ -52,6 +52,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/spring-cors-bloomfilter" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/spring-cors-bloomfilter" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/spring-data-redis" />
         <option name="modules">
           <set>
