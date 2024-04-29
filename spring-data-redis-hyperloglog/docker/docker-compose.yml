@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  redis-stack:
+    image: redis/redis-stack-server:7.2.0-v9-arm64
+    ports:
+      - "6379:6379"
+      - "8001:8001"
+    volumes:
+      - ./local-data:/data
