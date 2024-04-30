@@ -40,9 +40,4 @@ public class AppConfig {
         return new LettuceConnectionFactory(new RedisClusterConfiguration(clusterProperties.getNodes()));
     }
 
-    // RedisCacheManager is used to create a Redis cache manager
-    @Bean
-    public RedisCacheManager cacheManager() {
-        return RedisCacheManager.create(redisConnectionFactory());
-    }
 }
