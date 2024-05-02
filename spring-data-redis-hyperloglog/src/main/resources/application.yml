@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: spring-data-redis-hyperloglog
+
+  data:
+    redis:
+      database: 0
+      host: localhost
+      port: 16379
+      password: hyperion78*!
+      timeout: 60000
