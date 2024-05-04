@@ -217,4 +217,4 @@ cwallet.sso.lck
 hs_err_pid*
 replay_pid*
 
-dump.db
+dump.rdb
