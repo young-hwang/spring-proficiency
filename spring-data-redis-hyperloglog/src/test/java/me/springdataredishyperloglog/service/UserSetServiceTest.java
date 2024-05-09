@@ -54,7 +54,7 @@ class UserSetServiceTest {
         IntStream.rangeClosed(0, 23).forEach(i -> {
             IntStream.rangeClosed(1, 100000).forEach(j -> {
                 int idx = (i * 50000) + j;
-                userSetService.logUser(new UserDto("user" + idx, timestamp + i * 3600000L));
+                userSetService.logUser(new UserDto("9aa18df1-712f-484b-8288-" + idx, timestamp + i * 3600000L));
             });
         });
 
@@ -70,11 +70,11 @@ class UserSetServiceTest {
 
         long currentCardinality = userSetService.getCardinality(userSetService.getDailyKey(timestamp));
         System.out.println("currentCardinality = " + currentCardinality);
-        //Duration: 917ms
+        //Duration: 652ms
         //hourlyCardinality = 100000
         //currentCardinality = 1250000
 
-        // daily 85165960 bytes = 85.17mb
+        // daily 85165960 bytes = 100.29mb
         // hourly 6373000 bytes = 6.37mb
     }
 }

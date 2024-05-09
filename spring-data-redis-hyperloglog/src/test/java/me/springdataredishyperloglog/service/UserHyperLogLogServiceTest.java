@@ -3,6 +3,8 @@ package me.springdataredishyperloglog.service;
 import me.springdataredishyperloglog.dto.UserDto;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.extension.Extensions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.StringRedisTemplate;
@@ -72,11 +74,8 @@ class UserHyperLogLogServiceTest {
         long hourlyCardinality = userHyperLogLogService.getCardinality(userHyperLogLogService.getHourlyKey(timestamp));
         System.out.println("hourlyCardinality = " + hourlyCardinality);
 
-        long currentCardinality = userHyperLogLogService.getCardinality(userHyperLogLogService.getDailyKey(timestamp));
-        System.out.println("currentCardinality = " + currentCardinality);
         // Duration: 14ms
         // hourlyCardinality = 99725 (100000)
-        // currentCardinality = 1257479 (1250000)
         //memory size 12392
     }
 
