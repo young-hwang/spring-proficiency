@@ -71,8 +71,8 @@ class CountMinSketchServiceTest {
         // given
         String sketchKey = "count:count-min-sketch";
         String sortedKey = "count:sorted-range";
-        Double rate = 0.0002;
-        Double probability = 0.001;
+        Double rate = 0.0007;
+        Double probability = 0.0001;
         redisTemplate.delete(sketchKey);
         redisTemplate.delete(sortedKey);
 
@@ -80,11 +80,11 @@ class CountMinSketchServiceTest {
         ZSetOperations<String, String> zSetOperations = redisTemplate.opsForZSet();
 
         // count min sketch 초기화
-        countMinSketchService.initByProb(sketchKey, rate, probability);
-        String uuid = UUID.randomUUID().toString().substring(0, 10);
+        countMinSketchService.initByProb(sketchKey, 0.0007, 0.0001);
+        String uuid = UUID.randomUUID().toString();
         var array = IntStream.rangeClosed(1, 1000)
                 .mapToObj(i -> {
-                    return IntStream.rangeClosed(1, (int) Math.floor(Math.random() * 10000 + 1))
+                    return IntStream.rangeClosed(1, (int) Math.floor(Math.random() * 3000 + 1))
                             .boxed()
                             .collect(Collectors.toMap(
                                     j -> uuid + j,
@@ -97,13 +97,12 @@ class CountMinSketchServiceTest {
 
         long startMilli = Instant.now().toEpochMilli();
         Arrays.stream(array).forEach(arr -> {
-//            countMinSketchService.incrBy(sketchKey, arr);
-            arr.keySet().forEach(item -> {
-                zSetOperations.incrementScore(sortedKey, (String) item, 1d);
-            });
+            // count min sketch 사용시 2612ms
+            countMinSketchService.incrBy(sketchKey, arr);
+            // Sorted Set 사용시 561336ms
+            arr.forEach((k, v) -> zSetOperations.incrementScore(sortedKey, (String) k, ((Long) v).doubleValue()));
         });
         long endMilli = Instant.now().toEpochMilli();
-
         System.out.println("Count Min Duration: " + (endMilli - startMilli) + "ms");
 
 
@@ -111,7 +110,7 @@ class CountMinSketchServiceTest {
                 .filter(i -> {
                     Long value = countMinSketchService.query(sketchKey, uuid + i).stream().findFirst().orElseGet(() -> 0L);
                     Double score = Optional.of(zSetOperations.score(sortedKey, uuid + i)).orElseGet(() -> 0d);
-                    if( value.doubleValue() != score.doubleValue()) {
+                    if (value.doubleValue() != score.doubleValue()) {
                         System.out.println(uuid + i + " : " + value + " : " + score);
                     }
                     return value.doubleValue() != score.doubleValue();
