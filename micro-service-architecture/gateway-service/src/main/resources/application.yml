@@ -4,17 +4,17 @@ server:
 spring:
   application:
     name: gateway-service
-#  cloud:
-#    gateway:
-#      routes:
-#      - id: first-service
-#        uri: http://127.0.0.1:18081/
-#        predicates:
-#          - Path=/first-service/**
-#      - id: second-service
-#        uri: http://127.0.0.1:18082/
-#        predicates:
-#          - Path=/second-service/**
+  cloud:
+    gateway:
+      routes:
+      - id: first-service
+        uri: http://127.0.0.1:18081/
+        predicates:
+          - Path=/first-service/**
+      - id: second-service
+        uri: http://127.0.0.1:18082/
+        predicates:
+          - Path=/second-service/**
 
 eureka:
   client:
