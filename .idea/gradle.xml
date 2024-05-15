@@ -36,6 +36,54 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/micro-service-architecture" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/micro-service-architecture" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/micro-service-architecture/discovery-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/micro-service-architecture/discovery-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/micro-service-architecture/first-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/micro-service-architecture/first-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/micro-service-architecture/gateway-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/micro-service-architecture/gateway-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/micro-service-architecture/second-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/micro-service-architecture/second-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/micro-service-architecture/user-service" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/micro-service-architecture/user-service" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/restful-web-service" />
         <option name="modules">
           <set>
