@@ -8,15 +8,15 @@ spring:
     gateway:
       routes:
       - id: first-service
-        uri: http://127.0.0.1:18081/
+        uri: lb://my-first-service
         predicates:
           - Path=/first-service/**
         filters:
 #          - AddRequestHeader=first-request, first-request-header2
 #          - AddResponseHeader=first-response, first-response-header2
           - CustomFilter
-      - id: second-service
-        uri: http://127.0.0.1:18082/
+      - id: my-second-service
+        uri: lb://my-second-service
         predicates:
           - Path=/second-service/**
         filters:
