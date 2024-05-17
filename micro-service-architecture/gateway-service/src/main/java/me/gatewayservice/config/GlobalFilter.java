@@ -1,5 +1,6 @@
-package me.gatewayservice;
+package me.gatewayservice.config;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.cloud.gateway.filter.GatewayFilter;
 import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
@@ -10,27 +11,36 @@ import reactor.core.publisher.Mono;
 
 @Slf4j
 @Component
-public class CustomFilter extends AbstractGatewayFilterFactory<CustomFilter.Config> {
-    public CustomFilter() {
+public class GlobalFilter extends AbstractGatewayFilterFactory<GlobalFilter.Config> {
+    public GlobalFilter() {
         super(Config.class);
     }
 
     @Override
     public GatewayFilter apply(Config config) {
-        // Custom Pre Filter
         return (exchange, chain) -> {
             ServerHttpRequest request = exchange.getRequest();
             ServerHttpResponse response = exchange.getResponse();
 
-            log.info("Custom Pre Filter : request id -> {}", request.getId());
-            // Custom Post Filter
-            return chain.filter(exchange).then(Mono.fromRunnable(()->{
-                log.info("Custom Pre Filter : response code -> {}", response.getStatusCode());
+            log.info("Global Filter baseMessage: {}", config.getBaseMessage());
+            if (config.isPreLogger()) {
+                log.info("Global Filter Start: request code -> {}", request.getId());
+            }
+            // Custom Pre Filter
+            return chain.filter(exchange).then(Mono.fromRunnable(() -> {
+                // Custom Post Filter
+                if (config.isPostLogger()) {
+                    log.info("Global Filter End: response code -> {}", response.getStatusCode());
+                }
             }));
         };
     }
 
+    @Data
     public static class Config {
         // Put the configuration properties here
+        private String baseMessage;
+        private boolean preLogger;
+        private boolean postLogger;
     }
 }
