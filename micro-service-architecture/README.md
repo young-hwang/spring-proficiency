@@ -1,4 +1,4 @@
-# Eureka
+# Spring Cloud Eureka
 
 ## Eureka Client Instance ID 변경
 
@@ -20,6 +20,48 @@ eureka:
     instanceId: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
 ```
 
+# Spring Cloud Gateway
 
+## Gateway Filter 추가
 
+AbstractGatewayFilterFactory를 상속받아 구현한 GatewayFilter를 추가할 수 있다.
 
+```java
+@Component
+public  class CustomFilter extends AbstractGatewayFilterFactory<CustomFilter.Config> {
+    public CustomFilter() {
+        super(Config.class);
+    }
+
+    @Override
+    public GatewayFilter apply(Config config) {
+        // exchange: request/response를 처리하는 객체
+        // chain: filter chain
+        return (exchange, chain) -> {
+            ServerHttpRequest request = exchange.getRequest().mutate()
+                    .header("X-Custom-Header", "CustomValue")
+                    .build();
+            return chain.filter(exchange.mutate().request(request).build());
+        };
+    }
+
+    public static class Config {
+        // Put the configuration properties
+    }
+}
+```
+
+Filter를 설정을 다음과 같이 구현한다.
+
+```yaml
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: my_route
+          uri: http://localhost:8080
+          predicates:
+            - Path=/my_route/**
+          filters:
+            - CustomFilter
+```
