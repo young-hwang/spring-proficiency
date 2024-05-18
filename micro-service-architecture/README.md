@@ -1,5 +1,9 @@
 # Spring Cloud Eureka
 
+## Eureka Server
+
+@EnableEurekaServer 어노테이션을 사용하여 Eureka Server를 구현할 수 있다.
+
 ## Eureka Client Instance ID 변경
 
 vanilla netflix eureka instance는 host name과 동일한 id로 등록됩니다.(host 당 하나의 service)
@@ -21,6 +25,10 @@ eureka:
 ```
 
 # Spring Cloud Gateway
+
+## Gateway 설정
+
+@EnableDiscoveryClient 마이크로서비스가 서비스 디스커버리 엔진에 등록되도록 만드는 역할을 합니다.
 
 ## Gateway Filter 추가
 
