@@ -28,6 +28,10 @@ spring:
              baseMessage: Hi, there
              preLogger: true
              postLogger: true
+      - id: my-user-service
+        uri: lb://my-user-service
+        predicates:
+          - Path=/user-service/**
       default-filters:
         - name: GlobalFilter
           args:
