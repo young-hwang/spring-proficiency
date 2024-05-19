@@ -32,6 +32,10 @@ spring:
         uri: lb://my-user-service
         predicates:
           - Path=/user-service/**
+      - id: my-catalog-service
+        uri: lb://my-catalog-service
+        predicates:
+          - Path=/catalog-service/**
       default-filters:
         - name: GlobalFilter
           args:

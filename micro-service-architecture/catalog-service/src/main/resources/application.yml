@@ -1,0 +1,41 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: my-catalog-service
+  datasource:
+    url: jdbc:h2:tcp://localhost:1521/test
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    open-in-view: false
+    generate-ddl: true
+    properties:
+      hibernate:
+        format_sql: true
+        default_batch_fetch_size: 100
+    show-sql: true
+    # jpa entity ??? ???? ??? ?? ? data.sql ??? ??? ?? ??????.
+    defer-datasource-initialization: true
+  # data.sql ??? ???? sql.init.mode=always? ???? ??.
+  sql:
+    init:
+      mode: always
+
+eureka:
+  instance:
+    instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://127.0.0.1:9000/eureka
+
+logging:
+    level:
+        com.example.catalogservice: debug
+        org.hibernate.SQL: debug
