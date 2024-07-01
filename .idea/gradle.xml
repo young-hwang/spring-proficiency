@@ -36,6 +36,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kotlin/spring-mvc-kotlin" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kotlin/spring-mvc-kotlin" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/micro-service-architecture" />
         <option name="modules">
           <set>
