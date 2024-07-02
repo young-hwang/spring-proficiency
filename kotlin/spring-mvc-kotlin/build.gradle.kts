@@ -23,8 +23,11 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 	implementation("org.springframework.boot:spring-boot-starter-mustache")
 	implementation("org.springframework.boot:spring-boot-starter-web")
+
+	// Spring Boot 웹 애플리케이션의 경우 필요한 Kotlin library 2가지
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("com.h2database:h2")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -33,6 +36,9 @@ dependencies {
 }
 
 kotlin {
+	// Kotlin JSR 305 주석 지원
+	// null + Spring nuallability 주석 Spring Framework API에 대한 null 안정성 제공
+	// 컴파일 타임에 관련 문제를 처리할 수 있음
 	compilerOptions {
 		freeCompilerArgs.addAll("-Xjsr305=strict")
 	}
