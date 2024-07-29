@@ -11,21 +11,15 @@ import org.springframework.web.bind.annotation.RestController
 import org.springframework.web.server.ResponseStatusException
 
 @Controller
-class HtmlController(private val repository: ArticleRepository) {
+class HtmlController(private val repository: ArticleRepository,
+    private val properties: BlogProperties) {
 
     @GetMapping("/")
     fun blog(model: Model): String {
-        model["title"] = "Blog"
+        model["title"] = properties.title
+        model["banner"] = properties.banner
         model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render()}
         return "blog"
-    }
-
-    @GetMapping("/article/{slug}")
-    fun article(@PathVariable slug: String, model: Model): String {
-        val article = repository.findBySlug(slug)?.render()?:throw ResponseStatusException(HttpStatus.NOT_FOUND, "This article does not exist")
-        model["title"] = article.title
-        model["article"] = article
-        return "article"
     }
 }
 
@@ -35,9 +29,19 @@ class UserController(private val repository: UserRepository) {
     @GetMapping("/")
     fun findAll() = repository.findAll()
 
-
+    @GetMapping("/{login}")
+    fun findOne(@PathVariable login: String) = repository.findByLogin(login)?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This user does not exist")
 }
 
+@RestController
+@RequestMapping("/api/article")
+class ArticleController(private val repository: ArticleRepository) {
+    @GetMapping("/")
+    fun findAll() = repository.findAllByOrderByAddedAtDesc()
+
+    @GetMapping("/{slug}")
+    fun findOne(@PathVariable slug: String) = repository.findBySlug(slug)?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This article dos not exist")
+}
 
 fun Article.render() = RenderArticle(
     slug,
