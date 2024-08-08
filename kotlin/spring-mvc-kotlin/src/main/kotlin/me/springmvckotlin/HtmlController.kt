@@ -39,7 +39,9 @@ class UserController(private val repository: UserRepository) {
     fun findAll() = repository.findAll()
 
     @GetMapping("/{login}")
-    fun findOne(@PathVariable login: String) = repository.findByLogin(login) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This user does not exist")
+    fun findOne(@PathVariable login: String) =
+        repository.findByLogin(login) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This user does not exist")
+}
 
 @RestController
 @RequestMapping("/api/article")
@@ -69,3 +71,4 @@ data class RenderArticle(
     val author: User,
     val addedAt: String
 )
+
