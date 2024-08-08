@@ -21,17 +21,25 @@ class HtmlController(private val repository: ArticleRepository,
         model["articles"] = repository.findAllByOrderByAddedAtDesc().map { it.render()}
         return "blog"
     }
+
+    @GetMapping("/article/{slug}")
+    fun article(@PathVariable slug: String, model: Model): String {
+        val article = repository.findBySlug(slug)?.render()?:throw ResponseStatusException(HttpStatus.NOT_FOUND, "This article does not exist")
+        model["title"] = article.title
+        model["article"] = article
+        return "article"
+    }
 }
 
 @RestController
 @RequestMapping("/api/user")
 class UserController(private val repository: UserRepository) {
+
     @GetMapping("/")
     fun findAll() = repository.findAll()
 
     @GetMapping("/{login}")
-    fun findOne(@PathVariable login: String) = repository.findByLogin(login)?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This user does not exist")
-}
+    fun findOne(@PathVariable login: String) = repository.findByLogin(login) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This user does not exist")
 
 @RestController
 @RequestMapping("/api/article")
@@ -42,6 +50,7 @@ class ArticleController(private val repository: ArticleRepository) {
     @GetMapping("/{slug}")
     fun findOne(@PathVariable slug: String) = repository.findBySlug(slug)?: throw ResponseStatusException(HttpStatus.NOT_FOUND, "This article dos not exist")
 }
+
 
 fun Article.render() = RenderArticle(
     slug,

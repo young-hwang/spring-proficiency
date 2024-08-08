@@ -14,6 +14,7 @@ import org.springframework.test.web.servlet.result.MockMvcResultMatchers.status
 
 @WebMvcTest
 class HtmlControllersTest(@Autowired val mockMvc: MockMvc) {
+
     @MockkBean
     lateinit var userRepository: UserRepository
 
