@@ -8,6 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/scheduling-tasks" />
           </set>
         </option>
       </GradleProjectSettings>
@@ -108,6 +109,14 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/scheduling-tasks" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/scheduling-tasks" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/spring-cloud-stream-rabbitmq-binder" />
         <option name="modules">
           <set>
@@ -152,6 +161,14 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$/spring-mvc-exception" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/spring-ssh-webclient" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/spring-ssh-webclient" />
           </set>
         </option>
       </GradleProjectSettings>
