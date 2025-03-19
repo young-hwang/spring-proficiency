@@ -8,7 +8,7 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/scheduling-tasks" />
+            <option value="$PROJECT_DIR$/accessing-relational-data-using-jdbc-with-spring" />
           </set>
         </option>
       </GradleProjectSettings>
