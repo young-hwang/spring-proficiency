@@ -219,3 +219,6 @@ replay_pid*
 
 dump.rdb
 *.db
+
+# claude
+/.claude
