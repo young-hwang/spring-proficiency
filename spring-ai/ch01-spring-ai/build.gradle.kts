@@ -26,6 +26,8 @@ dependencies {
 
     implementation("org.springframework.ai:spring-ai-starter-model-openai")
 
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
+
     compileOnly("org.projectlombok:lombok:1.18.40")
     annotationProcessor("org.projectlombok:lombok:1.18.40")
 
