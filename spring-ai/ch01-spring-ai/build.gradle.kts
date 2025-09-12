@@ -28,6 +28,8 @@ dependencies {
 
     implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0")
 
+    implementation("org.springframework.boot:spring-boot-devtools")
+
     compileOnly("org.projectlombok:lombok:1.18.40")
     annotationProcessor("org.projectlombok:lombok:1.18.40")
 
