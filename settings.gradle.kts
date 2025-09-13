@@ -9,3 +9,4 @@ dependencyResolutionManagement {
 rootProject.name = "spring-proficiency"
 
 include("spring-ai:ch01-spring-ai")
+include("spring-ai:ch02-chat-model-api")
