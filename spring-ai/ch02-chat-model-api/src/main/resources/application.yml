@@ -23,7 +23,7 @@ spring:
           must-revalidate: true
   ai:
     openai:
-      base-url: http://192.168.50.118:1234
+      base-url: ${OPENAI_BASE_URL}
       api-key: ${OPENAI_API_KEY}
 
 springdoc:

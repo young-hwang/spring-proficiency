@@ -31,7 +31,7 @@ public class AiService {
 
         // 대화 옵션 설정
         ChatOptions chatOptions = ChatOptions.builder()
-                .model("gpt-oss-20b")
+                .model("gemini-2.0-flash")
                 .temperature(0.3)
                 .maxTokens(1000)
                 .build();
@@ -63,7 +63,7 @@ public class AiService {
 
         // 대화 옵션 설정
         ChatOptions chatOptions = ChatOptions.builder()
-                .model("gpt-oss-20b")
+                .model("gemini-2.0-flash")
                 .temperature(0.3)
                 .maxTokens(1000)
                 .build();
