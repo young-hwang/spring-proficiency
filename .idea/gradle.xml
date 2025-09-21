@@ -11,6 +11,7 @@
             <option value="$PROJECT_DIR$/spring-ai" />
             <option value="$PROJECT_DIR$/spring-ai/ch01-spring-ai" />
             <option value="$PROJECT_DIR$/spring-ai/ch02-chat-model-api" />
+            <option value="$PROJECT_DIR$/spring-ai/ch03-prompt" />
           </set>
         </option>
       </GradleProjectSettings>
