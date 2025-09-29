@@ -17,18 +17,18 @@ import reactor.core.publisher.Flux;
 @RequestMapping("/ai")
 @Slf4j
 public class AiControllerRoleAssignmentPrompt {
-  // ##### 필드 ##### 
-  @Autowired
-  private AiServiceRoleAssignmentPrompt aiService; 
-  
-  //##### 메소드 ##### 
-  @PostMapping(
-    value = "/role-assignment",
-    consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
-    produces = MediaType.APPLICATION_NDJSON_VALUE     
-  )
-  public Flux<String> roleAssignment(@RequestParam("requirements") String requirements) {
-    Flux<String> travelSuggestions = aiService.roleAssignment(requirements);
-    return travelSuggestions;
-  }  
+    // ##### 필드 #####
+    @Autowired
+    private AiServiceRoleAssignmentPrompt aiService;
+
+    //##### 메소드 #####
+    @PostMapping(
+            value = "/role-assignment",
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+            produces = MediaType.APPLICATION_NDJSON_VALUE
+    )
+    public Flux<String> roleAssignment(@RequestParam("requirements") String requirements) {
+        Flux<String> travelSuggestions = aiService.roleAssignment(requirements);
+        return travelSuggestions;
+    }
 }
