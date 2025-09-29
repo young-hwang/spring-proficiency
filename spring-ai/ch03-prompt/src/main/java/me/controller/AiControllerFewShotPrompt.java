@@ -16,19 +16,19 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/ai")
 @Slf4j
 public class AiControllerFewShotPrompt {
-  // ##### 필드 ##### 
-  @Autowired
-  private AiServiceFewShotPrompt aiService; 
+    // ##### 필드 #####
+    @Autowired
+    private AiServiceFewShotPrompt aiService;
 
-  // ##### 메소드 #####
-  @PostMapping(
-    value = "/few-shot-prompt",
-    consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
-    produces = MediaType.APPLICATION_JSON_VALUE
-  )
-  public String fewShotPrompt(@RequestParam("order") String order) {
-    //서술식 주문을 JSON으로 변환
-    String json = aiService.fewShotPrompt(order);
-    return json;
-  } 
+    // ##### 메소드 #####
+    @PostMapping(
+            value = "/few-shot-prompt",
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+            produces = MediaType.APPLICATION_JSON_VALUE
+    )
+    public String fewShotPrompt(@RequestParam("order") String order) {
+        //서술식 주문을 JSON으로 변환
+        String json = aiService.fewShotPrompt(order);
+        return json;
+    }
 }

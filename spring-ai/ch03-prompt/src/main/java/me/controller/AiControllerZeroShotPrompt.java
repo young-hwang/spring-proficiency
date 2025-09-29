@@ -16,18 +16,18 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/ai")
 @Slf4j
 public class AiControllerZeroShotPrompt {
-  // ##### 필드 ##### 
-  @Autowired
-  private AiServiceZeroShotPrompt aiService;
-  
-  //##### 메소드 ##### 
-  @PostMapping(
-    value = "/zero-shot-prompt",
-    consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
-    produces = MediaType.TEXT_PLAIN_VALUE
-  )
-  public String zeroShotPrompt(@RequestParam("review") String review) {
-    String reviewSentiment = aiService.zeroShotPrompt(review);
-    return reviewSentiment;
-  }  
+    // ##### 필드 #####
+    @Autowired
+    private AiServiceZeroShotPrompt aiService;
+
+    //##### 메소드 #####
+    @PostMapping(
+            value = "/zero-shot-prompt",
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+            produces = MediaType.TEXT_PLAIN_VALUE
+    )
+    public String zeroShotPrompt(@RequestParam("review") String review) {
+        String reviewSentiment = aiService.zeroShotPrompt(review);
+        return reviewSentiment;
+    }
 }

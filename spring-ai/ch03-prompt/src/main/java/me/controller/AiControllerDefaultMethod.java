@@ -19,18 +19,18 @@ import reactor.core.publisher.Flux;
 @RequestMapping("/ai")
 @Slf4j
 public class AiControllerDefaultMethod {
-  // ##### 필드 ##### 
-  @Autowired
-  private AiServiceDefaultMethod aiService;
-  
-  // ##### 메소드 #####
-  @PostMapping(
-    value = "/default-method",
-    consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
-    produces = MediaType.APPLICATION_NDJSON_VALUE
-  )
-  public Flux<String> defaultMethod(@RequestParam("question") String question) {
-    Flux<String> response = aiService.defaultMethod(question);
-    return response;
-  }
+    // ##### 필드 #####
+    @Autowired
+    private AiServiceDefaultMethod aiService;
+
+    // ##### 메소드 #####
+    @PostMapping(
+            value = "/default-method",
+            consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE,
+            produces = MediaType.APPLICATION_NDJSON_VALUE
+    )
+    public Flux<String> defaultMethod(@RequestParam("question") String question) {
+        Flux<String> response = aiService.defaultMethod(question);
+        return response;
+    }
 }
